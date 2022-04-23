@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package user;
+
+service UserService{
+    rpc decodeJWT(JWT) returns(User);
+}
+
+message JWT {
+  string JWT = 1;
+}
+
+message User {
+  string _id = 1;
+  string name = 2;
+  int32 errorCode = 3;
+}
