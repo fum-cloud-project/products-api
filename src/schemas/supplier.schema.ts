@@ -28,6 +28,6 @@ export class Supplier {
   phone: string;
 }
 
-export const SupplierSchema = SchemaFactory.createForClass(Supplier);
+export const supplierSchema = SchemaFactory.createForClass(Supplier);
 
 export type SupplierDocument = Supplier & Document;
