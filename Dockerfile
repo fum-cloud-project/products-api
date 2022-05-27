@@ -18,6 +18,6 @@ ENV NODE_ENV production
 
 RUN npm run build
 
-EXPOSE 80
+EXPOSE 80 50052
 
 CMD ["node", "dist/main.js"]
