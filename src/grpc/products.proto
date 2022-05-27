@@ -20,6 +20,7 @@ message ReduceOrder{
 message ProductData{
   string _id = 1;
   string name = 2;
+  float price = 3;
 }
 
 message Void{}

@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+
 export interface User {
   _id: string;
   firstName: string;
@@ -18,6 +20,10 @@ export interface User {
 }
 
 export interface AuthService {
-  HasAccess(resource: { path: string; jwt: string; method: string }): Access;
-  GetUser(token: { jwt: string }): User;
+  HasAccess(resource: {
+    path: string;
+    jwt: string;
+    method: string;
+  }): Observable<Access>;
+  GetUser(token: { jwt: string }): Observable<User>;
 }

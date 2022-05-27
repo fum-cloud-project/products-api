@@ -1,11 +1,21 @@
-import { Body, Controller, Delete, Inject, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Inject,
+  Param,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import { ApiOperation, ApiSecurity, ApiTags } from '@nestjs/swagger';
 import { ProductsService } from '../products.service';
 import { CreateProductDto } from '../dto/create-product.dto';
+import { AuthGuard } from '../../auth/auth.guard';
 
 @Controller('products')
 @ApiTags('products')
 @ApiSecurity('JWT auth')
+@UseGuards(AuthGuard)
 export class ProductsAdminController {
   @Inject() private readonly productsService: ProductsService;
 

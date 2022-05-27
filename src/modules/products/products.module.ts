@@ -12,6 +12,9 @@ import {
 } from '../../schemas';
 import { ProductsAdminController } from './controllers/admin.controller';
 import { ProductsGrpcController } from './controllers/grpc.controller';
+import { AuthModule } from '../auth/auth.module';
+import { ClientsModule, Transport } from '@nestjs/microservices';
+import { AUTH_PACKAGE } from '../auth/constants';
 
 @Module({
   imports: [
@@ -19,6 +22,18 @@ import { ProductsGrpcController } from './controllers/grpc.controller';
       { name: Product.name, schema: productsSchema },
       { name: Supplier.name, schema: supplierSchema },
       { name: Category.name, schema: categorySchema },
+    ]),
+    AuthModule,
+    ClientsModule.register([
+      {
+        name: AUTH_PACKAGE,
+        transport: Transport.GRPC,
+        options: {
+          url: 'localhost',
+          package: 'auth',
+          protoPath: 'src/grpc/auth.proto',
+        },
+      },
     ]),
   ],
   controllers: [

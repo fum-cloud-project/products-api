@@ -1,4 +1,4 @@
-import { PageDto } from '../../dto/page.dto';
+import { PageDto } from '../../../dto/page.dto';
 import { IsMongoId, IsOptional } from 'class-validator';
 import { ApiPropertyOptional } from '@nestjs/swagger';
 

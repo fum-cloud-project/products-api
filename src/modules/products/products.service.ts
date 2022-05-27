@@ -83,7 +83,11 @@ export class ProductsService {
     if (!product) {
       throw new NotFoundException('Product not found');
     }
-    return { _id: product._id.toString(), name: product.name };
+    return {
+      _id: product._id.toString(),
+      name: product.name,
+      price: product.listPrice,
+    };
   }
 
   public async grpcReduce(input: { id: string; quantity: number }) {
