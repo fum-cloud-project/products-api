@@ -18,7 +18,7 @@ async function bootstrap() {
     options: {
       package: 'product',
       protoPath: join(__dirname, '../src/grpc/products.proto'),
-      url: 'localhost:50052',
+      url: '0.0.0.0:50052',
     },
   });
   app.setGlobalPrefix('api/catalog');
@@ -41,6 +41,6 @@ async function bootstrap() {
   SwaggerModule.setup('docs', app, document);
   app.useGlobalPipes(new ValidationPipe());
   await app.startAllMicroservices();
-  await app.listen(80);
+  await app.listen(8081);
 }
 bootstrap();

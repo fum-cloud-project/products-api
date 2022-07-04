@@ -29,7 +29,7 @@ import { AUTH_PACKAGE } from '../auth/constants';
         name: AUTH_PACKAGE,
         transport: Transport.GRPC,
         options: {
-          url: 'localhost',
+          url: process.env.AUTH_GRPC_URL,
           package: 'auth',
           protoPath: 'src/grpc/auth.proto',
         },
